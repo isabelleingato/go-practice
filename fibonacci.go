@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+);
 
 // fibonacci is a function that returns
 // a function that returns an int.
@@ -16,18 +19,20 @@ func fibonacci() func() int {
 			ret = 1
 		} else {
 			ret = last + secondToLast
-			secondToLast = last
-			last = ret
 		}
+		secondToLast = last
+		last = ret
 		index++
 		return ret
 	}
 	return fn
 }
 
-func main() {
+func Fib(num int) string {
+	var seq strings.Builder
 	f := fibonacci()
-	for i := 0; i < 10; i++ {
-		fmt.Println(f())
+	for i := 0; i < num; i++ {
+		seq.WriteString(fmt.Sprint(f()) + " ")
 	}
+	return seq.String()
 }

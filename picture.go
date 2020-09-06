@@ -1,7 +1,5 @@
 package main
 
-import "golang.org/x/tour/pic"
-
 func Pic(dx, dy int) [][]uint8 {
 	dslice := make([][]uint8, dy)
 	for i, _ := range dslice {
@@ -11,8 +9,4 @@ func Pic(dx, dy int) [][]uint8 {
 		}
 	}
 	return dslice
-}
-
-func main() {
-	pic.Show(Pic)
 }
